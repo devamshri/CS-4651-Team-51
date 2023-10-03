@@ -1,4 +1,4 @@
-# CS4651 Team51
+# Welcome!
 
 ## People:
 #### Shikhar Ahuja, Abhinav Govindaraju, Akhil Kammila, Devam Shrivastava, Ryan Zhang
