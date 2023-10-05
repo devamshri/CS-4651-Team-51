@@ -1,116 +1,37 @@
-# The Hacker theme
+---
+layout: default
+---
 
-[![.github/workflows/ci.yaml](https://github.com/pages-themes/hacker/actions/workflows/ci.yaml/badge.svg)](https://github.com/pages-themes/hacker/actions/workflows/ci.yaml) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-hacker.svg)](https://badge.fury.io/rb/jekyll-theme-hacker)
+# Welcome!
 
-*Hacker is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/hacker), or even [use it today](#usage).*
+## People:
+#### Shikhar Ahuja, Abhinav Govindaraju, Akhil Kammila, Devam Shrivastava, Ryan Zhang
 
-![Thumbnail of Hacker](thumbnail.png)
+## Task Breakdown
+We have our [Gantt Chart](https://docs.google.com/spreadsheets/d/1gmkqb4Gtm3RZGYnDpThMwq_offGcSGR-7dkz0H9TepM/edit?usp=sharing) linked here which breaks down our individual tasks and team-based deadlines
 
-## Usage
+## Introduction
+The finance industry presents a constant challenge to data-driven investors. An investor who finds meaningful patterns in stock price datasets can stand to make significant amounts of money. For this reason, there has been tremendous research in analyzing stock price datasets with various techniques. Employing ML is no exception.
 
-To use the Hacker theme:
+There are countless ML strategies that are commonly used to analyze stocks. Some include NLP for sentiment analysis, deep learning for pattern recognition, and transfer learning for directional stock predictions. Our project will focus on two specific techniques. The first is Principal Component Analysis, which can help us reduce the number of variables that we are analyzing. From there, we will perform correlation analysis to determine which stocks are highly correlated. This will allow us to develop information for pairs trading strategies.
 
-1. Add the following to your site's `_config.yml`:
+## Background
+Vast amounts of research has been conducted into both PCA and correlation analysis on stocks. M Ghorbani, for instance, conducted research employing PCA to predict future stock prices of 150 different companies in 2020. He compared PCA to both Gauss-Bayes, which is more computationally expensive, and moving average, which is much simpler. He found that PCA worked better than both of the other methods. PCA has also been shown to improve performances of SVM and linear regression models. This literature informed our own decision to employ PCA mixed with correlation analysis.
 
-    ```yml
-    remote_theme: pages-themes/hacker@v0.2.0
-    plugins:
-    - jekyll-remote-theme # add this line to the plugins list if you already have one
-    ```
+## Problem
+Our problem is to identify correlations between financial variables in order to develop mean reversion models. We found that traditional methods of analyzing stock time series data often encounter difficulties in handling the high dimensionality inherent in such datasets. In this context, Principal Component Analysis (PCA) emerges as a promising tool to discern and prioritize the underlying factors influencing stock movements. Our dataset will be Yahoo finance data on the top 100 Average Price Dollar stocks. We will use data spanning from the past 1.5 years to the past 0.5 years. We are planning to use daily open, close, high and low prices, along with the stock volume, dividends and stock splits.
 
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
+## Methods: 
+We intend to employ Principal Component Analysis as a method of feature extraction (reducing the number of stocks that we are analyzing). From there, we intend to test correlations on mean reversions of stock prices and also perform linear regressions of stock prices. Our models will be implemented using scikit-learn and numpy/pandas. Additionally, we will test our algorithms on both daily returns and log daily returns to see which type of data can yield more information. 
 
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
+## Results and Significance:
+There are several aspects of the project that can be quite significant. Successful PCA analysis can successfully extract the most important features from the dataset. Additionally, developing correlational models for mean reversion will help financial models accurately gain an “edge” on the market. In the context of trading, this could mean a highly successful trading strategy, which would generate positive gains. If our work leads to profitable trading strategies, we hope to backtest and employ them in real financial markets.
 
-## Customizing
 
-### Configuration variables
+## Sources:
 
-Hacker will respect the following variables, if set in your site's `_config.yml`:
+Anass Nahil, Abdelouahid Lyhyaoui. Short-term stock price forecasting using kernel principal component analysis and support vector machines: the case of Casablanca stock exchange, Procedia Computer Science, Volume 127, 2018, pp. 161-169, doi: https://doi.org/10.1016/j.procs.2018.01.111.
 
-```yml
-title: [The title of your site]
-description: [A short description of your site's purpose]
-```
+Ghorbani M, Chong EKP. Stock price prediction using principal components. PLoS One. 2020 Mar 20;15(3):e0230124. doi: 10.1371/journal.pone.0230124. PMID: 32196528; PMCID: PMC7083277.
 
-Additionally, you may choose to set the following optional variables:
-
-```yml
-show_downloads: ["true" or "false" (unquoted) to indicate whether to provide a download URL]
-google_analytics: [Your Google Analytics tracking ID]
-```
-
-### Stylesheet
-
-If you'd like to add your own custom styles:
-
-1. Create a file called `/assets/css/style.scss` in your site
-2. Add the following content to the top of the file, exactly as shown:
-    ```scss
-    ---
-    ---
-
-    @import "{{ site.theme }}";
-    ```
-3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
-
-*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
-
-### Layouts
-
-If you'd like to change the theme's HTML layout:
-
-1. For some changes such as a custom `favicon`, you can add custom files in your local `_includes` folder. The files [provided with the theme](https://github.com/pages-themes/hacker/tree/master/_includes) provide a starting point and are included by the [original layout template](https://github.com/pages-themes/hacker/blob/master/_layouts/default.html).
-2. For more extensive changes, [copy the original template](https://github.com/pages-themes/hacker/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-3. Create a file called `/_layouts/default.html` in your site
-4. Paste the default layout content copied in the first step
-5. Customize the layout as you'd like
-
-### Customizing Google Analytics code
-
-Google has released several iterations to their Google Analytics code over the years since this theme was first created. If you would like to take advantage of the latest code, paste it into `_includes/head-custom-google-analytics.html` in your Jekyll site.
-
-### Overriding GitHub-generated URLs
-
-Templates often rely on URLs supplied by GitHub such as links to your repository or links to download your project. If you'd like to override one or more default URLs:
-
-1. Look at [the template source](https://github.com/pages-themes/hacker/blob/master/_layouts/default.html) to determine the name of the variable. It will be in the form of `{{ site.github.zip_url }}`.
-2. Specify the URL that you'd like the template to use in your site's `_config.yml`. For example, if the variable was `site.github.url`, you'd add the following:
-    ```yml
-    github:
-      zip_url: http://example.com/download.zip
-      another_url: another value
-    ```
-3. When your site is built, Jekyll will use the URL you specified, rather than the default one provided by GitHub.
-
-*Note: You must remove the `site.` prefix, and each variable name (after the `github.`) should be indent with two space below `github:`.*
-
-For more information, see [the Jekyll variables documentation](https://jekyllrb.com/docs/variables/).
-
-## Roadmap
-
-See the [open issues](https://github.com/pages-themes/hacker/issues) for a list of proposed features (and known issues).
-
-## Project philosophy
-
-The Hacker theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
-
-## Contributing
-
-Interested in contributing to Hacker? We'd love your help. Hacker is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
-
-### Previewing the theme locally
-
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
-
-1. Clone down the theme's repository (`git clone https://github.com/pages-themes/hacker`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
-
-### Running tests
-
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` once before the test script will work.
+M. Waqar, H. Dawood, P. Guo, M. B. Shahnawaz and M. A. Ghazanfar, "Prediction of Stock Market by Principal Component Analysis," 2017 13th International Conference on Computational Intelligence and Security (CIS), Hong Kong, China, 2017, pp. 599-602, doi: 10.1109/CIS.2017.00139.
