@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Welcome!
+# Leveraging Correlation Analysis and Linear Regression for Stock Price Prediction and Trading Strategies
 
 ## People:
 #### Shikhar Ahuja, Abhinav Govindaraju, Akhil Kammila, Devam Shrivastava, Ryan Zhang
