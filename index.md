@@ -9,8 +9,9 @@ layout: default
 
 
 ## Contribution Table
-| Name               | Contribution                                                 |
-| :----------------  | :----------------------------------------------------------: |
+
+|        Name        |                       Tasks Assigned                         |
+|--------------------|--------------------------------------------------------------|
 | Shikhar Ahuja      |  Design and Selection, Feature Reduction, Results Evaluation |
 | Abhinav Govindaraju|    Design and Selection, Data Cleaning, Results Evaluation   |
 | Akhil Kammila      | Design and Selection, Data Visualization, Results Evaluation |
