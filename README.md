@@ -38,7 +38,7 @@ We intend to generate correlations between different pairs of stocks from hundre
 Next, we will perform linear regressions of the chosen stocks. Our models will be implemented using scikit-learn and numpy/pandas. In the future, we will use the linear regression predictions, as well as the pairs of stocks, to perform mean reversion strategies. Additionally, for testing, we will use RMSE values to evaluate the model performances.
 
 
-## Data Collectino and Processing:
+## Data Collection and Processing:
 ### Initial Data:
 To start, we pull data from Yahoo Finance. As previously mentioned, we are looking at companies with high Average Dollar Volume, which is (average price * volume).
 ![Ticker List](image1.png)
